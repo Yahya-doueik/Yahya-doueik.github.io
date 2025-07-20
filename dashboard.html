@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NexOra Academy Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <!-- In your index.html HEAD -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script defer src="dashboard.js"></script>
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <h2>NexOra</h2>
+    <a class="active" href="#">Dashboard</a>
+    <a href="#">Courses</a>
+    <a href="#">Students</a>
+    <a href="#" id="logoutBtn">Logout</a>
+    <div class="theme-toggle">
+      <label>
+        <input type="checkbox" id="themeSwitcher">
+        🌙 Toggle Mode
+      </label>
+    </div>
+  </div>
+
+  <div class="main">
+    <header>
+      <h1>Welcome, <span id="username">User</span> 👋</h1>
+      <div class="notification" id="notifBtn">🔔</div>
+      <div class="profile">
+        <img src="https://i.pravatar.cc/40" alt="Profile" />
+        <div id="profilePanel">
+          <p id="userEmail">email@example.com</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="stats">
+      <div class="card">
+        <h3>Total Students</h3>
+        <p id="totalUsers">--</p>
+      </div>
+      <div class="card">
+        <h3>Active Courses</h3>
+        <p id="activeProjects">--</p>
+      </div>
+      <div class="card">
+        <h3>Storage Used</h3>
+        <p id="storageUsed">--</p>
+      </div>
+    </section>
+
+    <section class="chart-area">
+      <canvas id="statsChart" height="100"></canvas>
+    </section>
+  </div>
+  <section class="add-student">
+  <h2>Add New Student</h2>
+  <form id="addStudentForm">
+    <input type="email" id="studentEmail" placeholder="Student Email" required />
+    <input type="password" id="studentPassword" placeholder="Password" required minlength="6" />
+    <select id="studentRole" required>
+      <option value="student" selected>Student</option>
+      <option value="teacher">Teacher</option>
+    </select>
+    <button type="submit">Create Student</button>
+  </form>
+</section>
+
+</body>
+</html>

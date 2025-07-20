@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NexOra Academy — Your Online Learning Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* CSS Custom Properties */
+    :root {
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --accent-gradient: linear    .testimonial {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--border-radius);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      box-shadow: var(--shadow-light);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      line-height: 1.6;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+    .testimonial::before {
+      content: '"';
+      font-size: clamp(3rem, 6vw, 4rem);
+      color: var(--accent-color);
+      position: absolute;
+      top: clamp(0.5rem, 2vw, 1rem);
+      left: clamp(0.75rem, 2vw, 1.25rem);
+      font-weight: 700;
+      font-style: normal;
+      opacity: 0.7;
+    }
+    .testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-heavy);
+      border-color: rgba(79, 172, 254, 0.3);
+    }facfe 0%, #00f2fe 100%;
+      --dark-bg: #0f0f23;
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --text-primary: #ffffff;
+      --text-secondary: #b8c5d6;
+      --accent-color: #00f2fe;
+      --border-radius: 20px;
+      --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.37);
+      --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.4);
+      --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    /* Modern Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--dark-bg);
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+    }
+    a:hover {
+      color: #00d4ff;
+      transform: translateY(-2px);
+    }
+    a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-color), #00d4ff);
+      transition: width 0.3s ease;
+    }
+    a:hover::after {
+      width: 100%;
+    }
+
+    /* Container max width */
+    .container {
+      max-width: clamp(320px, 90vw, 1400px);
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 4vw, 2rem);
+    }
+
+    /* Header & Nav */
+    header {
+      background: rgba(15, 15, 35, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: clamp(1rem, 2vw, 1.5rem) 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    
+    .logo {
+      font-weight: 800;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      letter-spacing: 1px;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+    
+    .logo::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+    }
+    
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+    }
+    
+    .mobile-menu-btn span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    
+    .mobile-menu-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .mobile-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .mobile-menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    nav {
+      transition: var(--transition);
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: clamp(1rem, 3vw, 2rem);
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+    
+    nav li {
+      font-weight: 500;
+    }
+    
+    nav li a {
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      padding: 0.75rem 1.25rem;
+      border-radius: 50px;
+      transition: var(--transition);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    nav li a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      transition: var(--transition);
+      z-index: -1;
+    }
+    
+    nav li a:hover::before {
+      left: 0;
+    }
+    
+    nav li a:hover {
+      color: var(--dark-bg);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-light);
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: clamp(6rem, 15vh, 8rem) 0 clamp(4rem, 10vh, 6rem);
+      text-align: center;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      z-index: -1;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      margin-bottom: clamp(1rem, 4vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      max-width: 1000px;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+    
+    .hero p {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      max-width: 700px;
+      margin: 0 auto clamp(2rem, 6vw, 3rem);
+      font-weight: 400;
+      color: var(--text-secondary);
+      opacity: 0.9;
+    }
+    
+    .hero .btn-group {
+      display: flex;
+      gap: clamp(1rem, 4vw, 2rem);
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .btn {
+      background: var(--accent-gradient);
+      color: var(--dark-bg);
+      font-weight: 600;
+      padding: clamp(0.8rem, 2vw, 1rem) clamp(2rem, 6vw, 3rem);
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      border-radius: 50px;
+      box-shadow: var(--shadow-light);
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #00d4ff 0%, #4facfe 100%);
+      transition: var(--transition);
+      z-index: -1;
+    }
+    
+    .btn:hover::before {
+      left: 0;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-heavy);
+    }
+    
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      transition: var(--transition);
+    }
+    
+    .btn:hover svg {
+      transform: translateX(2px);
+    }
+
+    /* Features */
+    section.features {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--border-radius);
+      margin: clamp(2rem, 5vw, 4rem) 0;
+      padding: clamp(3rem, 8vw, 5rem) 0;
+      color: var(--text-primary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .features h2 {
+      text-align: center;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      margin-bottom: clamp(2rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(1.5rem, 4vw, 2.5rem);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 4vw, 2rem);
+    }
+    .feature-item {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--border-radius);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      box-shadow: var(--shadow-light);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent-gradient);
+    }
+    .feature-item:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-heavy);
+      border-color: rgba(79, 172, 254, 0.3);
+    }
+    .feature-icon {
+      width: clamp(3rem, 6vw, 4rem);
+      height: clamp(3rem, 6vw, 4rem);
+      margin-bottom: clamp(1rem, 3vw, 1.5rem);
+      filter: drop-shadow(0 4px 12px rgba(79, 172, 254, 0.4));
+    }
+    .feature-title {
+      font-weight: 600;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      margin-bottom: clamp(0.5rem, 2vw, 1rem);
+      color: var(--text-primary);
+    }
+    .feature-desc {
+      font-weight: 400;
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Courses Section */
+    section.courses {
+      padding: clamp(3rem, 8vw, 5rem) 0;
+      max-width: 1200px;
+      margin: clamp(2rem, 5vw, 4rem) auto;
+      color: var(--text-primary);
+    }
+    section.courses h2 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: clamp(2rem, 6vw, 4rem);
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: clamp(1.5rem, 4vw, 2.5rem);
+      padding: 0 clamp(1rem, 4vw, 2rem);
+    }
+    .course-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--border-radius);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      box-shadow: var(--shadow-light);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .course-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent-gradient);
+    }
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-heavy);
+      border-color: rgba(79, 172, 254, 0.3);
+    }
+    .course-title {
+      font-weight: 700;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      margin-bottom: clamp(0.5rem, 2vw, 1rem);
+      color: var(--text-primary);
+    }
+    .course-desc {
+      font-weight: 400;
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      margin-bottom: clamp(1rem, 3vw, 1.5rem);
+      flex-grow: 1;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .course-level {
+      font-weight: 600;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      margin-bottom: clamp(1rem, 3vw, 1.5rem);
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .course-btn {
+      align-self: flex-start;
+      background: var(--accent-gradient);
+      color: var(--dark-bg);
+      padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1.5rem, 4vw, 2rem);
+      font-weight: 600;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      border-radius: 50px;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .course-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #00d4ff 0%, #4facfe 100%);
+      transition: var(--transition);
+      z-index: -1;
+    }
+    .course-btn:hover::before {
+      left: 0;
+    }
+    .course-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-light);
+    }
+
+    /* About */
+    section.about {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--border-radius);
+      margin: clamp(2rem, 5vw, 4rem) 0;
+      padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
+      text-align: center;
+      color: var(--text-primary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    section.about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent-gradient);
+    }
+    section.about h2 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      margin-bottom: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    section.about p {
+      font-weight: 400;
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Testimonials */
+    section.testimonials {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--border-radius);
+      margin: clamp(2rem, 5vw, 4rem) 0;
+      padding: clamp(3rem, 8vw, 5rem) 0;
+      color: var(--text-primary);
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    section.testimonials::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent-gradient);
+    }
+    section.testimonials h2 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      margin-bottom: clamp(2rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .testimonials-grid {
+      display: grid;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: clamp(1.5rem, 4vw, 2.5rem);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      padding: 0 clamp(1rem, 4vw, 2rem);
+    }
+    .testimonial {
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px 20px;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+      color: #182848;
+      font-style: italic;
+      font-weight: 400;
+      position: relative;
+    }
+    .testimonial::before {
+      content: '“';
+      font-size: 4rem;
+      color: #f1c40f;
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-weight: 700;
+      font-style: normal;
+    }
+    .testimonial-author {
+      margin-top: 15px;
+      font-weight: 600;
+      font-style: normal;
+      text-align: right;
+      color: #444;
+    }
+
+    /* Footer */
+    footer {
+      background: #121a2a;
+      color: #666;
+      padding: 25px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    footer a {
+      color: #f1c40f;
+      margin: 0 12px;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+      section.features {
+        padding: 40px 0;
+      }
+      section.features h2 {
+        font-size: 2.2rem;
+        margin-bottom: 35px;
+      }
+      .features-grid {
+        gap: 25px;
+      }
+      section.testimonials h2 {
+        font-size: 2.2rem;
+        margin-bottom: 35px;
+      }
+      section.courses h2 {
+        font-size: 2.2rem;
+      }
+    }
+    @media (max-width: 480px) {
+      header .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .btn-group {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+     .dropdown {
+      position: relative;
+    }
+    .dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .dropdown-menu {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 110%;
+      min-width: 180px;
+      background: rgba(20,24,40,0.98);
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px) scale(0.98);
+      transition: opacity 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1);
+      z-index: 1002;
+      padding: 0.5em 0;
+    }
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu,
+    .dropdown.open .dropdown-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+    .dropdown-menu li {
+      width: 100%;
+    }
+    .dropdown-menu a {
+      display: block;
+      width: 100%;
+      padding: 0.75em 1.2em;
+      color: var(--text-primary);
+      background: none;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      text-align: left;
+      transition: background 0.2s, color 0.2s;
+    }
+    .dropdown-menu a:hover, .dropdown-menu a:focus {
+      background: var(--accent-gradient);
+      color: var(--dark-bg);
+    }
+
+    /* Hamburger styles */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+    }
+    .mobile-menu-btn span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .mobile-menu-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .mobile-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    @media (max-width: 900px) {
+      nav ul {
+        gap: 0.5rem;
+      }
+      .dropdown-menu {
+        min-width: 140px;
+      }
+    }
+    @media (max-width: 768px) {
+      header .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(20,24,40,0.98);
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        padding: 1.2em 0.5em;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1001;
+        display: none;
+      }
+      nav.active ul {
+        display: flex;
+      }
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        min-width: 100%;
+        margin-top: 0.2em;
+        border-radius: 10px;
+        background: rgba(20,24,40,0.98);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-container">
+      <div class="logo" aria-label="NexOra Online Academy">NexOra</div>
+      <button class="mobile-menu-btn" aria-label="Open navigation menu" tabindex="0">
+        <span></span><span></span><span></span>
+      </button>
+      <nav aria-label="Primary navigation" class="main-nav">
+        <ul>
+          <li><a href="#features">Why NexOra</a></li>
+          <li class="dropdown">
+            <a href="#courses" class="dropdown-toggle">Courses <svg width="16" height="16" style="vertical-align:middle; margin-left:2px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+            <ul class="dropdown-menu">
+              <li><a href="#courses">All Courses</a></li>
+              <li><a href="#cyber">Cybersecurity</a></li>
+              <li><a href="#hacking">Ethical Hacking</a></li>
+              <li><a href="#webdev">Web Development</a></li>
+            </ul>
+          </li>
+          <li><a href="#about">About</a></li>
+          <li><a href="signIn.html">Sign In</a></li>
+          <li><a href="signUp.html">Sign Up</a></li>
+        </ul>
+      </nav>
+   
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="hero">
+      <h1>Learn. Grow. Succeed. <br />Welcome to NexOra Academy</h1>
+      <p>The online academy designed to unlock your full potential with expert-led courses, hands-on projects, and 24/7 support.</p>
+      <div class="btn-group">
+        <a href="signUp.html" class="btn" aria-label="Sign up for NexOra Academy">
+          Get Started
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a href="signIn.html" class="btn" aria-label="Sign in to NexOra Academy">
+          Login
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="features" id="features" tabindex="0" aria-label="Why choose NexOra Academy">
+      <h2>Why Choose NexOra Academy?</h2>
+      <div class="features-grid">
+
+        <article class="feature-item" role="region" aria-label="Expert Instructors Feature">
+          <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="7" r="4" fill="#f1c40f"/>
+            <path d="M4 21v-2a4 4 0 014-4h8a4 4 0 014 4v2z" fill="#fff"/>
+          </svg>
+          <h3 class="feature-title">Expert Instructors</h3>
+          <p class="feature-desc">Learn from industry professionals passionate about your growth.</p>
+        </article>
+
+        <article class="feature-item" role="region" aria-label="Flexible Learning Feature">
+          <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="#f1c40f" d="M12 2a10 10 0 100 20 10 10 0 000-20z"/>
+            <path fill="#182848" d="M12 6v6l4 2"/>
+          </svg>
+          <h3 class="feature-title">Flexible Learning</h3>
+          <p class="feature-desc">Study anytime, anywhere, at your own pace.</p>
+        </article>
+
+        <article class="feature-item" role="region" aria-label="Hands-on Projects Feature">
+          <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <rect x="3" y="7" width="18" height="14" fill="#f1c40f" rx="2" ry="2"/>
+            <path d="M16 3v4M8 3v4" stroke="#182848" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <h3 class="feature-title">Hands-on Projects</h3>
+          <p class="feature-desc">Apply what you learn with real-world assignments and challenges.</p>
+        </article>
+
+        <article class="feature-item" role="region" aria-label="Certification Feature">
+          <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle fill="#f1c40f" cx="12" cy="12" r="10"/>
+            <path fill="#182848" d="M10 16l5-4-5-4z"/>
+          </svg>
+          <h3 class="feature-title">Certification</h3>
+          <p class="feature-desc">Earn certificates that showcase your achievements and skills.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="courses" id="courses" tabindex="0" aria-label="Available courses at NexOra Academy">
+      <h2>Featured Courses</h2>
+      <div class="courses-grid">
+
+        <article class="course-card" role="region" aria-label="Introduction to Cybersecurity course">
+          <h3 class="course-title">Introduction to Cybersecurity</h3>
+          <p class="course-desc">Understand core concepts of cybersecurity, threats, and defenses for beginners.</p>
+          <p class="course-level">Level: Beginner</p>
+          <a href="signUp.html" class="course-btn" aria-label="Enroll in Introduction to Cybersecurity">Enroll Now</a>
+        </article>
+
+        <article class="course-card" role="region" aria-label="Advanced Ethical Hacking course">
+          <h3 class="course-title">Advanced Ethical Hacking</h3>
+          <p class="course-desc">Dive deep into penetration testing techniques and ethical hacking practices.</p>
+          <p class="course-level">Level: Advanced</p>
+          <a href="signUp.html" class="course-btn" aria-label="Enroll in Advanced Ethical Hacking">Enroll Now</a>
+        </article>
+
+        <article class="course-card" role="region" aria-label="Web Development Bootcamp course">
+          <h3 class="course-title">Web Development Bootcamp</h3>
+          <p class="course-desc">Build modern websites and apps with HTML, CSS, JavaScript, and React.</p>
+          <p class="course-level">Level: Intermediate</p>
+          <a href="signUp.html" class="course-btn" aria-label="Enroll in Web Development Bootcamp">Enroll Now</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>About NexOra Academy</h2>
+      <p>
+        NexOra Academy is a cutting-edge online learning platform dedicated to helping students and professionals
+        master cybersecurity, programming, and digital skills through interactive lessons, expert guidance, and real-world projects.
+        We believe education should be accessible, engaging, and empowering.
+      </p>
+    </section>
+
+    <!--
+    <section class="testimonials" id="testimonials" aria-label="Student testimonials">
+      <h2>What Our Students Say</h2>
+      <div class="testimonials-grid">
+
+        <blockquote class="testimonial" tabindex="0">
+          “NexOra’s courses gave me the skills and confidence to start my career in cybersecurity. The instructors are amazing!”
+          <footer class="testimonial-author">— Sara K.</footer>
+        </blockquote>
+
+        <blockquote class="testimonial" tabindex="0">
+          “I loved the flexible schedule and hands-on projects. I could learn at my own pace while applying knowledge immediately.”
+          <footer class="testimonial-author">— Amir L.</footer>
+        </blockquote>
+
+        <blockquote class="testimonial" tabindex="0">
+          “The community and support here are fantastic. I got certified and landed a job within months. Highly recommend NexOra!”
+          <footer class="testimonial-author">— Lina A.</footer>
+        </blockquote>
+
+      </div>
+    </section>
+    -->
+  </main>
+
+  <footer>
+    <p>© 2025 NexOra Academy. All rights reserved.</p>
+    <p>
+      <a href="https://twitter.com/nexora" target="_blank" rel="noopener noreferrer" aria-label="Twitter">Twitter</a> |
+      <a href="https://github.com/nexora" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a> |
+      <a href="mailto:contact@nexora.com" aria-label="Email NexOra">Email</a>
+    </p>
+  </footer>
+</main>
+
+  <script>
+    // Hamburger menu toggle for mobile
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const nav = document.querySelector('nav');
+      if (mobileMenuBtn && nav) {
+        mobileMenuBtn.addEventListener('click', function() {
+          mobileMenuBtn.classList.toggle('active');
+          nav.classList.toggle('active');
+        });
+      }
+      // Dropdown click for mobile
+      const dropdown = document.querySelector('.dropdown');
+      if (dropdown) {
+        dropdown.addEventListener('click', function(e) {
+          if(window.innerWidth <= 768) {
+            e.stopPropagation();
+            this.classList.toggle('open');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign In - NexOra</title>
+  <link rel="stylesheet" href="authDesign.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  
+  <!-- Firebase CDN scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics-compat.js"></script>
+  <script src="signIn.js" defer></script>
+</head>
+<body>
+  <a href="index.html" class="back-btn" aria-label="Back to home" style="display:flex;align-items:center;gap:7px;margin:28px auto 10px auto;justify-content:center;text-decoration:none;font-weight:600;color:#00f2fe;font-size:1.05rem;transition:color 0.2s;max-width:120px;">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><polyline points="15 18 9 12 15 6"/></svg>
+    Back
+  </a>
+  <h1>Welcome Back</h1>
+  <div class="container">
+    <div class="form-container">
+      <h2>Sign In</h2>
+      <form>
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="example@mail.com" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" required />
+        </div>
+        <button type="submit" id="signin" class="btn">Login</button>
+      </form>
+      <p class="signin-link">Don’t have an account? <a href="signUp.html">Sign Up</a></p>
+    </div>
+  </div>
+</body>
+</html>
